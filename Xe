@@ -1,0 +1,141 @@
+local p = game.Players.LocalPlayer
+local pg = p.PlayerGui
+local a = game.InsertService
+local old = pg:FindFirstChild("gui")
+if old then old:Destroy() end
+local gui = Instance.new("ScreenGui")
+gui.Name = "gui"
+gui.ResetOnSpawn = false
+gui.DisplayOrder = 100
+gui.Parent = pg
+local f = Instance.new("Frame")
+f.Name = "Background"
+f.Size = UDim2.fromOffset(360,270)
+f.Position = UDim2.new(0.5,0,0.5,0)
+f.AnchorPoint = Vector2.new(0.5,0.5)
+f.BackgroundColor3 = Color3.fromRGB(20,21,29)
+f.BorderSizePixel = 0
+f.Active = true
+f.Draggable = true
+f.Parent = gui
+local c = Instance.new("UICorner")
+c.CornerRadius = UDim.new(0,12)
+c.Parent = f
+local s = Instance.new("UIStroke")
+s.Color = Color3.fromRGB(85,88,105)
+s.Thickness = 1.2
+s.Parent = f
+local h = Instance.new("Frame")
+h.Size = UDim2.new(1,0,0,38)
+h.BackgroundColor3 = Color3.fromRGB(31,33,43)
+h.BorderSizePixel = 0
+h.Parent = f
+local hc = Instance.new("UICorner")
+hc.CornerRadius = UDim.new(0,12)
+hc.Parent = h
+local cover = Instance.new("Frame")
+cover.Size = UDim2.new(1,0,0,10)
+cover.Position = UDim2.new(0,0,1,-10)
+cover.BackgroundColor3 = h.BackgroundColor3
+cover.BorderSizePixel = 0
+cover.Parent = h
+local t = Instance.new("TextLabel")
+t.Size = UDim2.new(1,-50,1,0)
+t.Position = UDim2.fromOffset(12,0)
+t.BackgroundTransparency = 1
+t.Text = "Xe"
+t.TextColor3 = Color3.fromRGB(240,240,245)
+t.TextSize = 13
+t.Font = Enum.Font.GothamBold
+t.TextXAlignment = Enum.TextXAlignment.Left
+t.Parent = h
+local x = Instance.new("TextButton")
+x.Size = UDim2.fromOffset(28,26)
+x.Position = UDim2.new(1,-33,0,6)
+x.BackgroundColor3 = Color3.fromRGB(175,55,65)
+x.Text = "X"
+x.TextColor3 = Color3.new(1,1,1)
+x.TextSize = 13
+x.Font = Enum.Font.GothamBold
+x.BorderSizePixel = 0
+x.Parent = h
+local xc = Instance.new("UICorner")
+xc.CornerRadius = UDim.new(0,6)
+xc.Parent = x
+x.MouseButton1Click:Connect(function()
+	gui:Destroy()
+end)
+local v = Instance.new("ViewportFrame")
+v.Name = "VehicleViewport"
+v.Position = UDim2.fromOffset(8,46)
+v.Size = UDim2.new(1,-16,1,-54)
+v.BackgroundColor3 = Color3.fromRGB(13,14,19)
+v.BorderSizePixel = 0
+v.Ambient = Color3.fromRGB(200,200,200)
+v.LightColor = Color3.fromRGB(255,255,255)
+v.LightDirection = Vector3.new(-1,-1,-1)
+v.Parent = f
+local vc = Instance.new("UICorner")
+vc.CornerRadius = UDim.new(0,9)
+vc.Parent = v
+local a1 = Instance.new("WorldModel")
+a1.Parent = v
+local a2 = Instance.new("Model")
+a2.Name = "KitaimoraX_Vehicle"
+a2.Parent = a1
+local a3 = CFrame.new()
+local function mesh(n,id,size,cf,mat,tr,col)
+	local r = a:CreateMeshPartAsync("rbxassetid://"..id,Enum.CollisionFidelity.Default,Enum.RenderFidelity.Performance)
+	r.Name = n
+	r.Anchored = true
+	r.CastShadow = false
+	r.Size = size
+	r.CFrame = a3 * cf
+	r.Material = mat or Enum.Material.SmoothPlastic
+	r.Color = col or Color3.new(1,1,1)
+	r.Transparency = tr or 0
+	r.Parent = a2
+	return r
+end
+pcall(function()
+	mesh("Carbon1","96885118544362",Vector3.new(5.1137,1.0817,2.0712),CFrame.new(0.0452,0.583,0))
+	mesh("Cover1","128815395666130",Vector3.new(3.6145,0.54,2.03),CFrame.new(0,0.37,0))
+	mesh("Dash1","111741507523362",Vector3.new(0.012,0.042,1.0013),CFrame.new(-0.95,0.815,0),Enum.Material.Neon)
+	mesh("Glass1","116142228796539",Vector3.new(3.7597,0.6063,1.5593),CFrame.new(-0.05,0.7912,0))
+	mesh("GlossBlack1","82937876311316",Vector3.new(4.3215,0.9579,2.0071),CFrame.new(0.3758,0.5739,0))
+	mesh("Glow1","76291700910901",Vector3.new(0.7128,0.5886,1.8855),CFrame.new(-1.9336,0.5589,0),Enum.Material.Neon,0.82)
+	mesh("Gun1","78144924814802",Vector3.new(3.6207,0.6007,1.99),CFrame.new(0,0.37,0))
+	mesh("Light1","94558931971558",Vector3.new(0.6913,0.5621,1.8365),CFrame.new(-1.925,0.5478,0),Enum.Material.Neon)
+	mesh("Logo1","85676145000940",Vector3.new(0.131,0.0731,0.15),CFrame.new(-2.2019,0.6127,0))
+	local b = Instance.new("Part")
+	b.Name = "Badge"
+	b.Anchored = true
+	b.CastShadow = false
+	b.Transparency = 1
+	b.Size = Vector3.new(0.125,0.002,0.125)
+	b.CFrame = a3 * CFrame.new(-2.2019,0.6187,0,-3.823084e-08,-0.4848096,0.8746197,-2.11917e-08,0.8746197,0.4848096,-1,0,-4.371138e-08)
+	b.Parent = a2
+	local d = Instance.new("Decal")
+	d.Name = "jvIfDHAAgatwU"
+	d.Texture = "rbxassetid://93076575693709"
+	d.Face = Enum.NormalId.Top
+	d.Parent = b
+	mesh("Paint1","72456424034231",Vector3.new(1.8256,0.7764,2.042),CFrame.new(1.5063,0.5218,0))
+	mesh("Paint2","108194475163777",Vector3.new(1.3975,0.7281,2.042),CFrame.new(-1.6946,0.4548,0))
+	mesh("Paint3","70715501449707",Vector3.new(1.6095,0.7205,2.0219),CFrame.new(-0.1985,0.4863,0))
+	mesh("Tail1","87090353621085",Vector3.new(0.4425,0.5206,1.7966),CFrame.new(2.2994,0.616,0),Enum.Material.Neon,0,Color3.new(1,0.18039216,0.14901961))
+	mesh("TailGlow1","97875385361027",Vector3.new(0.505,0.5831,1.8586),CFrame.new(2.2992,0.6162,0),Enum.Material.Neon,0.8,Color3.new(1,0.11764706,0.09411765))
+	mesh("Text1","123692243246315",Vector3.new(0.004,0.0456,0.1971),CFrame.new(2.504,0.5263,-0.0015),Enum.Material.Neon)
+	mesh("Tire1","75032771680899",Vector3.new(3.76,0.74,2.008),CFrame.new(0,0.37,0))
+	mesh("Trim1","104420356737513",Vector3.new(4.622,1.053,2.0414),CFrame.new(0.291,0.5235,0))
+	local box,size = a2:GetBoundingBox()
+	a2:PivotTo(CFrame.new(-box.Position)*a2:GetPivot())
+	local cam = Instance.new("Camera")
+	cam.Name = "VehicleCamera"
+	cam.FieldOfView = 20
+	cam.Parent = v
+	v.CurrentCamera = cam
+	local dist = size.Magnitude/(2*math.tan(math.rad(cam.FieldOfView/2)))*1.15
+	local dir = Vector3.new(1,0.45,1).Unit
+	cam.CFrame = CFrame.lookAt(dir*dist,Vector3.zero)
+end)
