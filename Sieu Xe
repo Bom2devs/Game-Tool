@@ -83,7 +83,7 @@ vc.Parent = v
 local a1 = Instance.new("WorldModel")
 a1.Parent = v
 local a2 = Instance.new("Model")
-a2.Name = "KitaimoraX_Vehicle"
+a2.Name = "Sieu Xe"
 a2.Parent = a1
 local a3 = CFrame.new()
 local function mesh(n,id,size,cf,mat,tr,col)
@@ -118,7 +118,7 @@ b.Size = Vector3.new(0.125,0.002,0.125)
 b.CFrame = a3 * CFrame.new(-2.2019,0.6187,0,-3.823084e-08,-0.4848096,0.8746197,-2.11917e-08,0.8746197,0.4848096,-1,0,-4.371138e-08)
 b.Parent = a2
 local d = Instance.new("Decal")
-d.Name = "jvIfDHAAgatwU"
+d.Name = "KKK"
 d.Texture = "rbxassetid://93076575693709"
 d.Face = Enum.NormalId.Top
 d.Parent = b
