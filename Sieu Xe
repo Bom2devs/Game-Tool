@@ -1,3 +1,6 @@
+-- Tự lấy source rồi tự sửa giao diện cho đẹp thôi
+
+
 local p = game.Players.LocalPlayer
 local pg = p.PlayerGui
 local a = game.InsertService
